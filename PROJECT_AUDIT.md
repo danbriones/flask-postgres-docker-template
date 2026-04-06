@@ -49,6 +49,30 @@ The project was reviewed for consistency and functionality. Multiple issues were
 - **Impact**: Docker container couldn't bind to port 5000
 - **Fix**: Changed docker-compose.yml port mapping from `5000:5000` to `8000:5000` (accessible at localhost:8000)
 
+### ✅ DATABASE & DEPLOYMENT ISSUES (Completed)
+
+#### 8. **Database Migration Issue**
+- **Issue**: "relation 'user' does not exist" error on login after container restart
+- **Impact**: Login functionality broken on fresh deployments
+- **Root Cause**: Database migrations not applied to fresh PostgreSQL container
+- **Fix**: Always run migrations after starting containers:
+  ```bash
+  docker compose exec web flask db upgrade
+  ```
+- **Prevention**: Add to deployment checklist - migrations must be applied after database container creation
+
+#### 9. **Docker Auto-Reload Issue**
+- **Issue**: Template changes not reflected immediately in Docker container
+- **Impact**: Required container restart for every UI change during development
+- **Root Cause**: Flask running without debug mode and file watching
+- **Fix**: Added to `docker-compose.yml`:
+  ```yaml
+  environment:
+    FLASK_DEBUG: 1
+  command: flask run --host=0.0.0.0 --reload
+  ```
+- **Result**: Template changes now update immediately without container restart
+
 ### ✅ CONSISTENCY ISSUES (Completed)
 
 #### 8. **Code Structure Cleanup**
