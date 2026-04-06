@@ -4,7 +4,14 @@ README.md
 Markdown
 # Flask + Postgres + Docker Stack
 
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+
 A streamlined development environment for a Python-based web application, optimized for use with GitHub Copilot and VS Code.
+
+**Repository**: [https://github.com/danbriones/flask-postgres-docker-template](https://github.com/danbriones/flask-postgres-docker-template)
 
 ## 🚀 Quick Start
 
