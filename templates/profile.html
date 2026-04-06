@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}User Profile{% endblock %} {% block
+content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm mt-4">
+      <div class="card-header bg-white py-3">
+        <h5 class="mb-0">User Profile</h5>
+      </div>
+      <div class="card-body text-center">
+        <div
+          class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3"
+          style="width: 80px; height: 80px; font-size: 2rem"
+        >
+          {{ user.username[0] | upper }}
+        </div>
+        <h3 class="card-title">{{ user.username }}</h3>
+        <p class="text-muted small">ID: {{ user.id }}</p>
+
+        <hr />
+
+        <div class="row text-start">
+          <div class="col-6"><strong>Email:</strong></div>
+          <div class="col-6">{{ user.email }}</div>
+
+          <div class="col-6"><strong>Member Since:</strong></div>
+          <div class="col-6">{{ user.joined }}</div>
+        </div>
+      </div>
+      <div class="card-footer bg-white text-end">
+        <a
+          href="{{ url_for('index') }}"
+          class="btn btn-outline-secondary btn-sm"
+          >Back to Home</a
+        >
+        <button class="btn btn-primary btn-sm">Edit Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+services:
+  test_db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+      POSTGRES_DB: test_db
+    # No volumes here so the DB starts fresh every time
+
+  test_web:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://test_user:test_password@test_db:5432/test_db
+      FLASK_ENV: testing
+      SECRET_KEY: test_secret
+    depends_on:
+      - test_db
+    command: pytest tests/

@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Database & Docker
+# Prevents local postgres data from being committed
+postgres_data/
+.docker-data/
+
+# Secrets & Configuration
+.env
+.flaskenv
+instance/
+.pytest_cache/
+
+# VS Code & OS
+.vscode/
+.DS_Store
+*.swp
+
+# Distributions & Build
+dist/
+build/
+*.egg-info/
